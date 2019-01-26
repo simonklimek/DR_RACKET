@@ -1,0 +1,16 @@
+#lang racket
+(require net/dns)
+(require net/head)
+(require net/smtp)
+
+(define (testmdx)
+  (smtp-send-message (dns-get-address (dns-find-nameserver) "smtp.mdx.ac.uk")
+   "sk1974@live.mdx.ac.uk" `("sk1974@live.mdx.ac.uk")
+   (standard-message-header "Sender Name <sk1974@live.mdx.ac.uk>"
+    `("Simon SLA <simonklimek91@gmail.com>")
+    `() ; CC
+    `() ; BCC
+    "saying hello from mdx")
+   `("hello world!")
+   )
+  )

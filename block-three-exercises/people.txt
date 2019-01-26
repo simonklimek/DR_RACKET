@@ -1,0 +1,4 @@
+John password
+Mike pass1
+Adele pass2
+Suzan pass3
